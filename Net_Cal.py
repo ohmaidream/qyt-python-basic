@@ -1,10 +1,13 @@
 import re
-ip_addr = input("IP=")
-mask = input("mask=")
-# ip_addr = '10.146.157.169'
-# mask = '255.255.240.0'
+# ip_addr = input("IP=")
+# mask = input("mask=")
+ip_addr = '192.168.20.20'
+mask = '255.255.255.252'
 
-if int(re.match('255\.255\.(\d{1,3})\.\d{1,3}', mask).groups()[0]) != 255:
+if int(re.match('\d{1,3}\.(\d{1,3})\.\d{1,3}\.\d{1,3}', mask).groups()[0]) != 255 or \
+   int(re.match('(\d{1,3})\.\d{1,3}\.\d{1,3}\.\d{1,3}', mask).groups()[0]) != 255:
+    print("Sorry, mask shorter than /16 is not available now.")
+elif int(re.match('255\.255\.(\d{1,3})\.\d{1,3}', mask).groups()[0]) != 255:
     ipaddr_3 = int(re.match('\d{1,3}\.\d{1,3}\.(\d{1,3})\.\d{1,3}', ip_addr).groups()[0])
     mask_3 = int(re.match('\d{1,3}\.\d{1,3}\.(\d{1,3})\.\d{1,3}', mask).groups()[0])
     gw_3 = (256 - mask_3) * (ipaddr_3 // (256 - mask_3) + 1) - 1
@@ -33,6 +36,5 @@ elif int(re.match('255\.255\.(\d{1,3})\.\d{1,3}', mask).groups()[0]) == 255:
         print('Network=%s' % net)
     else:
         print("Sorry, this is a point-to-point network OR mask input error")
-else:
-    print("Sorry, mask shorter than /16 is not available now.")
+
 
