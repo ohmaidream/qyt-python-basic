@@ -24,7 +24,7 @@ elif int(re.match('255\.255\.(\d{1,3})\.\d{1,3}', mask).groups()[0]) == 255:
     if int(re.match('\d{1,3}\.\d{1,3}\.\d{1,3}\.(\d{1,3})', mask).groups()[0]) < 252:
         ipaddr_4 = int(re.match('\d{1,3}\.\d{1,3}\.\d{1,3}\.(\d{1,3})', ip_addr).groups()[0])
         mask_4 = int(re.match('\d{1,3}\.\d{1,3}\.\d{1,3}\.(\d{1,3})', mask).groups()[0])
-        gw_4 = (256 - mask_4) * (ipaddr_4 // (256 - mask_4) + 1) - 1
+        gw_4 = (256 - mask_4) * (ipaddr_4 // (256 - mask_4) + 1) - 2
         net_4 = (256 - mask_4) * (ipaddr_4 // (256 - mask_4))
         ipv4_gw = re.match('(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.\d{1,3}', ip_addr).groups()[0] + "." + \
                   re.match('(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.\d{1,3}', ip_addr).groups()[1] + "." + \
