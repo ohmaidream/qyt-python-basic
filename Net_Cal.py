@@ -1,8 +1,8 @@
 import re
-# ip_addr = input("IP=")
-# mask = input("mask=")
-ip_addr = '192.168.20.20'
-mask = '255.255.255.252'
+ip_addr = input("IP=")
+mask = input("mask=")
+# ip_addr = '192.168.20.20'
+# mask = '255.255.255.0'
 
 if int(re.match('\d{1,3}\.(\d{1,3})\.\d{1,3}\.\d{1,3}', mask).groups()[0]) != 255 or \
    int(re.match('(\d{1,3})\.\d{1,3}\.\d{1,3}\.\d{1,3}', mask).groups()[0]) != 255:
