@@ -4,12 +4,15 @@ import re
 hit_list = []
 os.chdir('test')
 # pwd = os.listdir()
+
 # for i in pwd:
 #     if os.path.isfile(i):
 #         for line in open(i):
 #             if re.match('.*qytang.*', line):
 #                 hit_list.append(i)
-#
+#     elif os.path.isdir(i):
+#         os.chdir(i)
+#         print(os.getcwd())
 # print('文件中包含“qytang”关键字的文件为：')
 # for file_name in hit_list:
 #     print(file_name)
