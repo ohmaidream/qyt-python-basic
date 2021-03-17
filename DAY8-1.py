@@ -2,7 +2,7 @@ import re
 import time
 import os
 
-trigger = 'null'
+trigger m= 'null'
 while True:
     time.sleep(2)
     print("等待一秒重新开始监控！")
